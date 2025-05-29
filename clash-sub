@@ -1,0 +1,24 @@
+proxies:
+  - name: "VLESS-CF-Tunnel"
+    type: vless
+    server: yhl.yhlglobalshop.online
+    port: 443
+    uuid: f2bef64a-40be-411e-95a3-2f6f34727c12
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: "/ws"
+      headers:
+        Host: yhl.yhlglobalshop.online
+    servername: yhl.yhlglobalshop.online
+
+proxy-groups:
+  - name: "auto"
+    type: select
+    proxies:
+      - "VLESS-CF-Tunnel"
+
+rules:
+  - MATCH,auto
